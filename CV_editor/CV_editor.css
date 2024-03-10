@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 10px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    grid-template-rows: auto 1fr auto;
+}
+
+header {
+    height: 10rem;
+    background-color: red;
+}
+
+footer {
+    height: 10rem;
+    background-color: red;
+}
+
+main {
+    display: grid;
+    height: 70vh;
+    margin: 5rem 0;
+    grid-template-columns: 50vw 50vw;
+}
+
+.preview {
+    height: 100%;
+    width: 100%;
+    background-color: grey;
+}
