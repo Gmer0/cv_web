@@ -30,6 +30,7 @@ footer {
     gap: 3rem;
     justify-content: center;
     align-content: center;
+    justify-items: center;
     margin: 5rem 0;
 }
 

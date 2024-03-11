@@ -8,19 +8,30 @@
 </head>
 <body>
     <header>
-
+        
     </header>
     <main>
         <section class="cv-editor">
-            <input type="text" placeholder="Imię">
-            <input type="text" placeholder="Nazwisko">
-        </section>
-        <section class="preview">
-
-        </section>
+            <form action="CV_editor.html" method="post" onsubmit="saveData()">
+                <input type="text" id="name" placeholder="Imię" value="">
+                <input type="text" id="surname" placeholder="Nazwisko" value="">
+                <input type="text" id="address" placeholder="Ulica" value="">
+                <input type="text" id="postalCode" placeholder="Kod pocztowy" value="">
+                <input type="text" id="city" placeholder="Miasto" value="">
+              <input type="submit" value="Aktualizuj podgląd" onclick="updatePreview()">
+              <input type="submit" value="Wygeneruj CV" formaction="../CV_download/CV_download.html">
+            </form>
+          </section>
+        
+          <section class="preview">
+            <h2>Podgląd</h2>
+            <p>Imię: <span id="previewName"></span></p>
+            <p>Nazwisko: <span id="previewSurname"></span></p>
+          </section>
     </main>
     <footer>
 
     </footer>
+    <script src="CV_editor.js"></script>
 </body>
 </html>
