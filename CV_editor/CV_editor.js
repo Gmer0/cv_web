@@ -1,28 +1,38 @@
-// Odczytaj dane z localStorage po załadowaniu strony
+// Read data from LocalStorage
 document.addEventListener("DOMContentLoaded", function() {
     loadData();
   });
 
   function saveData() {
-    // Pobierz wartości z pól formularza
+    // Get values ​​from form fields and save to localStorage
     var nameValue = document.getElementById('name').value;
     var surnameValue = document.getElementById('surname').value;
 
-    // Zapisz dane do localStorage
     localStorage.setItem('name', nameValue);
     localStorage.setItem('surname', surnameValue);
   }
 
   function loadData() {
-    // Odczytaj dane z localStorage
+    // Read data from localStorage, put in form fields, and preview
     var nameValue = localStorage.getItem('name');
     var surnameValue = localStorage.getItem('surname');
 
-    // Wprowadź dane do pól formularza
     document.getElementById('name').value = nameValue || '';
     document.getElementById('surname').value = surnameValue || '';
 
-    // Aktualizuj podgląd
     document.getElementById('previewName').textContent = nameValue || '';
     document.getElementById('previewSurname').textContent = surnameValue || '';
   }
+
+  // Get option from LocalStorage, create CSS file
+  const chosenOption = localStorage.getItem('chosenOption');
+
+  console.log(chosenOption);
+
+  const cssFileNumber = `../CV_style/${chosenOption}.css`;
+
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = cssFileNumber;
+  document.head.appendChild(link);
