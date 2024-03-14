@@ -5,37 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV Generator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-sans" type="text/css"/>
 </head>
 <body>
-    <header>
-
-    </header>
+    <!-- CV sheet tiles -->
     <main>
         <section class="cv-tiles">
-            <a href="CV_editor/CV_editor.html" id="cv_1">
-                <div class="cv-tile">
-                
+
+            <div class="cv-tiles__frame">
+
+                <div class="cv-tiles__header">
+                    <p><b>CV-Kreator</b></p>
+                    <p>Jedyny koszt to obejrzenie reklamy.</p>
+                    <p><b>16.03.2024</b></p>
                 </div>
-            </a>
-            <a href="CV_editor/CV_editor.html" id="cv_2">
-                <div class="cv-tile">
-                
+
+                <h1 class="page-title">Stwórz swoje CV</h1>
+
+                <div class="cv-tiles__contener">
+                    <a href="cv-editor/CV-editor.html" onclick="saveOption(1)" id="cv_1">
+                        <div class="cv-tile">
+                        
+                        </div>
+                    </a>
+                    <a href="cv-editor/CV-editor.html?option=2" onclick="saveOption(2)" id="cv_2">
+                        <div class="cv-tile">
+                        
+                        </div>
+                    </a>
+                    <a href="cv-editor/CV-editor.html?option=3" onclick="saveOption(3)" id="cv_3">
+                        <div class="cv-tile">
+                        
+                        </div>
+                    </a>
+                    <a href="cv-editor/CV-editor.html?option=4" onclick="saveOption(4)" id="cv_4">
+                        <div class="cv-tile">
+                        
+                        </div>
+                    </a>
                 </div>
-            </a>
-            <a href="CV_editor/CV_editor.html" id="cv_3">
-                <div class="cv-tile">
-                
-                </div>
-            </a>
-            <a href="CV_editor/CV_editor.html" id="cv_4">
-                <div class="cv-tile">
-                
-                </div>
-            </a>
+            </div>
         </section>
     </main>
-    <footer>
-
-    </footer>
+    <script src="script.js"></script>
 </body>
 </html>

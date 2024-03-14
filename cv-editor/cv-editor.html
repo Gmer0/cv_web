@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cv-editor.css">
+</head>
+<body>
+    <main>
+      <!-- All Inputs -->
+        <section class="cv-editor">
+          <div class="cv-editor__frame">
+              <a href="../index.html">Back</a>
+              <p>Wypełnij jedynie pola z informacjami, które chcesz zawrzeć w swoim CV.</p>
+
+                <form action="cv-editor.html" method="post" onsubmit="saveData()">
+
+                  <div class="category-button" onclick="showCategory('main-info')">Podstawowe Informacje</div>
+                  <div class="category active" id="main-info">
+                    <input type="text" id="name" name="name" placeholder="Imię" value="">
+                    <input type="text" id="surname" name="surname" placeholder="Nazwisko" value="">
+                    <input type="email" id="email" placeholder="E-mail" value="">
+                    <input type="number" id="phone" placeholder="Nr telefonu" value="">
+                    <input type="text" id="aboutMe" placeholder="O mnie" value="">
+                  </div>
+                  
+                  <div class="category-button" onclick="showCategory('experience')">Doświadczenie</div>
+                  <div class="category" id="experience">
+
+                    <p>Wypełnij tyle pól ile potrzebujesz</p>
+                    <p>1</p>
+                    <input type="text" id="company0" placeholder="Nazwa Firmy" value="">
+                    <input type="text" id="position0" placeholder="Stanowisko" value="">
+                    <input type="number" id="from0" placeholder="Od" value="">
+                    <input type="number" id="to0" placeholder="Do" value="">
+
+                    <p>2</p>
+                    <input type="text" id="company1" placeholder="Nazwa Firmy" value="">
+                    <input type="text" id="position1" placeholder="Stanowisko" value="">
+                    <input type="number" id="from1" placeholder="Od" value="">
+                    <input type="number" id="to1" placeholder="Do" value="">
+
+                    <p>3</p>
+                    <input type="text" id="company2" placeholder="Nazwa Firmy" value="">
+                    <input type="text" id="position2" placeholder="Stanowisko" value="">
+                    <input type="number" id="from2" placeholder="Od" value="">
+                    <input type="number" id="to2" placeholder="Do" value="">
+
+                    <p>4</p>
+                    <input type="text" id="company3" placeholder="Nazwa Firmy" value="">
+                    <input type="text" id="position3" placeholder="Stanowisko" value="">
+                    <input type="number" id="from3" placeholder="Od" value="">
+                    <input type="number" id="to3" placeholder="Do" value="">
+                  </div>
+
+                  <div class="category-button" onclick="showCategory('education')">Wykształcenie</div>
+                  <div class="category" id="education">
+
+                  </div>
+
+                  <div class="category-button" onclick="showCategory('skills')">Umiejętności</div>
+                  <div class="category" id="skills">
+
+                  </div>
+
+                  <div class="category-button" onclick="showCategory('courses')">Kursy</div>
+                  <div class="category" id="courses">
+
+                  </div>
+
+                  <div class="category-button" onclick="showCategory('languages')">Języki</div>
+                  <div class="category" id="languages">
+
+                  </div>
+
+                  <input type="button" value="Aktualizuj podgląd" onclick="saveData(); loadData();">
+                  <input type="submit" value="Wygeneruj CV" formaction="../cv-download/CV-download.html">
+
+                </form>
+          </div>
+          </section>
+
+          <!-- Preview -->
+          <section class="cv-preview">
+            <div class="cv-preview__frame">             
+              <h2>Podgląd</h2>
+              <div class="cv-preview__preview">
+                <span id="previewName"></span><br>
+                <span id="previewSurname"></span><br>
+                <span id="previewEmail"></span><br>
+                <span id="previewPhone"></span><br>
+                <span id="previewAboutMe"></span><br>
+                <span id="previewCompany"></span><br>
+                <span id="previewPosition"></span><br>
+              </div>
+            </div>
+          </section>
+    </main>
+    <script src="cv-editor.js"></script>
+</body>
+</html>
