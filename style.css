@@ -8,13 +8,6 @@
 
 :root {
     font-size: 10px;
-    --1: #BD9479;
-    --2: #8E7765;
-    --3: #DDC1A7;
-    --4: #E4D3C4;
-    --5: #433831;
-    --6: #FFFFFF;
-    --7: #F8F7F4;
 }
 
 /* Web main style */
@@ -31,7 +24,7 @@ body::before {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-image: linear-gradient(to right top, var(--1), var(--2), var(--3));
+    background-image: linear-gradient(to right top, #BD9479, #8E7765, #DDC1A7);
 }
 
 /* Tiles */
@@ -39,12 +32,12 @@ body::before {
 .cv-tiles {
     padding: 1rem;
     margin: 5rem 15rem;
-    border: var(--6) solid 2px;
+    border: #FFFFFF solid 2px;
     border-radius: 4rem;
 }
 
 .cv-tiles__frame {
-    background-color: var(--4);
+    background-color: #E4D3C4;
     padding: 4rem 8rem;
     border-radius: 4rem;
 }
@@ -52,17 +45,17 @@ body::before {
 .cv-tiles__header {
     display: flex;
     justify-content: space-between;
-    background-color: var(--6);
+    background-color: #FFFFFF;
     border-radius: 2rem;
     padding: 2rem 6rem;
     font-family: 'FiraSansRegular', sans-serif;
     font-size: 1.5rem;
-    color: var(--5);
+    color: #433831;
 }
 
 .page-title {
     padding: 3rem 0;
-    color: var(--5);
+    color: #433831;
     font-size: 4rem;
     display: flex;
     justify-content: center;
@@ -81,12 +74,12 @@ body::before {
 .cv-tile {
     height: 35rem;
     width: 25rem;
-    background-color: var(--6);
+    background-color: #FFFFFF;
     border-radius: 2rem;
     transition: all 0.25s ease-in-out;
 }
 
 .cv-tile:hover {
-    background-color: var(--6);
+    background-color: #FFFFFF;
     cursor: pointer;
 }

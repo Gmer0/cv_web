@@ -7,14 +7,6 @@
 
 :root {
     font-size: 10px;
-    --1: #BD9479;
-    --2: #8E7765;
-    --3: #DDC1A7;
-    --4: #E4D3C4;
-    --5: #433831;
-    --6: #FFFFFF;
-    --7: #F8F7F4;
-    --8: #D9AF93;
 }
 
 body {
@@ -24,6 +16,7 @@ body {
 /* Main */
 
 main {
+    height: 80vh;
     display: grid;
     grid-template-columns: 40% 60%;
 }
@@ -36,14 +29,15 @@ main::before {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-image: linear-gradient(to right top, var(--3), var(--1), var(--8));
+    background-image: linear-gradient(to right top, #DDC1A7, #BD9479, #D9AF93);
 }
 
 .cv-editor {
     padding: 1rem;
     margin: 5rem 5rem;
-    border: var(--6) solid 2px;
+    border: #FFFFFF solid 2px;
     border-radius: 4rem;
+    position: relative;
 }
 
 .cv-editor__frame {
@@ -51,12 +45,17 @@ main::before {
     padding: 4rem 8rem;
     border-radius: 4rem;
     height: 100vh;
+    overflow: auto;
+    scrollbar-width: none;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
 }
 
 .cv-preview {
     padding: 1rem;
     margin: 5rem 5rem;
-    border: var(--6) solid 2px;
+    border: #FFFFFF solid 2px;
     border-radius: 4rem;
 }
 
@@ -65,24 +64,105 @@ main::before {
     padding: 4rem 8rem;
     border-radius: 4rem;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cv-editor__frame > a {
+    padding: 1rem;
+    border-radius: 50%;
+    background-color: #433831;
+    transition: all 0.25s ease-in-out;
+    color: #FFFFFF;
+    position: absolute;
+    left: 3rem;
+    top: 3rem;
+}
+
+.cv-editor__frame > a:hover {
+    background-color: #FFFFFF;
+    color: #433831;
 }
 
 /* Information Categories */
 
 .category {
     display: none;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
 .active {
-    display: block;
+    display: flex;
 }
 
 .category-button {
-    background-color: var(--6);
-    border-radius: 2rem;
-    font-size: 1.2rem;
-    padding: 1rem;
-    display: flex;
-    justify-self: flex-start;
+    font-size: 1.4rem;
+    border-bottom: #433831 solid 2px;
+    border-right: #433831 solid 2px;
     cursor: pointer;
+    transform: skewX(-20deg);
+    margin: 1rem 0;
+    transition: all 0.25s ease-in-out;
+}
+
+.category-button:hover {
+    color: #BD9479;
+}
+
+.category input {
+    background-color: #F8F7F4;
+    border: none;
+    outline: none;
+    padding: 0.8rem;
+    border-radius: 1rem;
+}
+
+/* Hide */
+
+.previewEmailListItem,
+.previewPhoneListItem,
+.previewAddressListItem,
+.aboutMe,
+.company0,
+.company1,
+.company2,
+.company3,
+.position0,
+.position1,
+.position2,
+.position3,
+.from0,
+.from1,
+.from2,
+.from3,
+.to0,
+.to1,
+.to2,
+.to3 {
+    display: none;
+}
+
+/*  preview */
+
+.cv-preview__preview {
+    background-color: #FFFFFF;
+    height: 50vw;
+    width: 35vw;
+    display: grid;
+    align-content: flex-start;
+}
+
+.cv-preview__preview .header {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin: 2rem;
+}
+
+.cv-preview__preview .header img {
+    width: 12rem;
+    border-radius: 50%;
 }
