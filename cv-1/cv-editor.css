@@ -34,7 +34,7 @@ main::before {
 
 .cv-editor {
     padding: 1rem;
-    margin: 5rem 5rem;
+    margin: 3vw 3vw;
     border: #FFFFFF solid 2px;
     border-radius: 4rem;
     position: relative;
@@ -54,7 +54,7 @@ main::before {
 
 .cv-preview {
     padding: 1rem;
-    margin: 5rem 5rem;
+    margin: 3vw 3vw 3vw 0;
     border: #FFFFFF solid 2px;
     border-radius: 4rem;
 }
@@ -89,9 +89,9 @@ main::before {
 
 .category {
     display: none;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .active {
@@ -112,12 +112,68 @@ main::before {
     color: #BD9479;
 }
 
-.category input {
+.category input,
+.category textarea {
     background-color: #F8F7F4;
     border: none;
     outline: none;
     padding: 0.8rem;
     border-radius: 1rem;
+    width: 9vw;
+    margin: 2px;
+}
+
+.category textarea {
+    width: 18vw;
+}
+
+.main-category input:nth-child(3),
+.main-category input:nth-child(6) {
+    width: calc(18vw + 2px);
+}
+
+.photo-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-category input {
+    width: 15vw;
+}
+
+.experience-category__inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.experience-category__input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.education-category__inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.education-category__input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.education-category__input input:nth-child(1) {
+    width: calc(18vw + 2px);
+}
+
+.skills-category input,
+.courses-category input,
+.languages-category input {
+    width: 18vw;
 }
 
 /* Hide */
@@ -141,7 +197,49 @@ main::before {
 .to0,
 .to1,
 .to2,
-.to3 {
+.to3,
+.education0,
+.education1,
+.education2,
+.education3,
+.educationFrom0,
+.educationFrom1,
+.educationFrom2,
+.educationFrom3,
+.educationTo0,
+.educationTo1,
+.educationTo2,
+.educationTo3,
+.skill0,
+.skill1,
+.skill2,
+.skill3,
+.skill4,
+.skill5,
+.skill6,
+.skill7,
+.skill8,
+.skill9,
+.course0,
+.course1,
+.course2,
+.course3,
+.course4,
+.course5,
+.course6,
+.course7,
+.course8,
+.course9,
+.language0,
+.language1,
+.language2,
+.language3,
+.language4,
+.language5,
+.language6,
+.language7,
+.language8,
+.language9 {
     display: none;
 }
 
@@ -149,8 +247,7 @@ main::before {
 
 .cv-preview__preview {
     background-color: #FFFFFF;
-    height: 50vw;
-    width: 35vw;
+    width: 45vw;
     display: grid;
     align-content: flex-start;
 }
@@ -159,10 +256,48 @@ main::before {
     display: flex;
     justify-content:space-between;
     align-items: center;
-    margin: 2rem;
+    padding: 5%;
 }
 
 .cv-preview__preview .header img {
     width: 12rem;
     border-radius: 50%;
+}
+
+/* Media Query */
+
+/* Phone */
+@media only screen and (max-width: 780px) {
+    main {
+        height: auto;
+        grid-template-columns: 90%;
+        justify-content: center;
+    }
+    .cv-editor__frame {
+        height: auto;
+    }
+    .cv-preview__frame {
+        height: auto;
+    }
+    .cv-preview {
+        margin: 3vw;
+    }
+}
+
+/* Tablet */
+@media only screen and (min-width: 781px) and (max-width: 1194px) {
+    main {
+        height: auto;
+        grid-template-columns: 90%;
+        justify-content: center;
+    }
+    .cv-editor__frame {
+        height: auto;
+    }
+    .cv-preview__frame {
+        height: auto;
+    }
+    .cv-preview {
+        margin: 3vw;
+    }
 }

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cv-editor.css">
+    <script src="https://kit.fontawesome.com/9c00906fc5.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <main>
+      <!-- All Inputs -->
+        <section class="cv-editor">
+          <div class="cv-editor__frame">
+              <a href="../index.html"><i class="fa-solid fa-backward"></i></a>
+              <p>Wypełnij jedynie pola z informacjami, które chcesz zawrzeć w swoim CV.</p>
+
+                <form class="category-form" action="cv-editor.html" method="post" onsubmit="saveData()">
+                  
+                  <!-- main-info -->
+                  <div class="category-button" onclick="showCategory('main-info')">Podstawowe Informacje</div>
+                  <div class="category main-category active" id="main-info">
+                    <input type="text" id="name" name="name" placeholder="Imię" value="">
+                    <input type="text" id="surname" name="surname" placeholder="Nazwisko" value="">
+                    <input type="email" id="email" placeholder="E-mail" value="">
+                    <input type="number" id="phone" placeholder="Nr telefonu" value="">
+                    <input type="text" id="address" placeholder="Adres" value="">
+                    <textarea id="aboutMe" placeholder="O mnie" value="" rows="4" cols="50"></textarea>
+                  </div>
+
+
+                  <div class="category-button" onclick="showCategory('photo')">Zdjęcie</div>
+                  <div class="photo-category category" id="photo">
+                    <p>Zdjęcie powinno być kwadratowe dla właściwego efektu</p>
+                    <input type="file" id="fileInput" accept="image/*">
+                  </div>
+
+                  <!-- experience -->
+                  <div class="category-button" onclick="showCategory('experience')">Doświadczenie</div>
+                  <div class="category experience-category" id="experience">
+
+                    <p>Wypełnij tyle pól ile potrzebujesz</p>
+
+                    <div class="experience-category__inputs">
+                      <div class="experience-category__input">                  
+                        <input type="text" id="company0" placeholder="Nazwa Firmy" value="">
+                        <input type="text" id="position0" placeholder="Stanowisko" value="">
+                        <input type="text" id="from0" placeholder="Od" value="">
+                        <input type="text" id="to0" placeholder="Do" value="">                     
+                      </div>
+                      
+                      <div class="experience-category__input">                        
+                        <input type="text" id="company1" placeholder="Nazwa Firmy" value="">
+                        <input type="text" id="position1" placeholder="Stanowisko" value="">
+                        <input type="text" id="from1" placeholder="Od" value="">
+                        <input type="text" id="to1" placeholder="Do" value="">
+                      </div>
+
+                      <div class="experience-category__input">                        
+                        <input type="text" id="company2" placeholder="Nazwa Firmy" value="">
+                        <input type="text" id="position2" placeholder="Stanowisko" value="">
+                        <input type="text" id="from2" placeholder="Od" value="">
+                        <input type="text" id="to2" placeholder="Do" value="">
+                      </div>
+
+                      <div class="experience-category__input">                       
+                        <input type="text" id="company3" placeholder="Nazwa Firmy" value="">
+                        <input type="text" id="position3" placeholder="Stanowisko" value="">
+                        <input type="text" id="from3" placeholder="Od" value="">
+                        <input type="text" id="to3" placeholder="Do" value="">
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- education -->
+                  <div class="category-button" onclick="showCategory('education')">Wykształcenie</div>
+                  <div class="category education-category" id="education">
+
+                    <div class="education-category__inputs">
+                      <div class="education-category__input">                        
+                        <input type="text" id="education0" placeholder="Nazwa Szkoły" value="">
+                        <input type="text" id="educationFrom0" placeholder="Od" value="">
+                        <input type="text" id="educationTo0" placeholder="Do" value="">
+                      </div>                
+  
+                      <div class="education-category__input">                        
+                        <input type="text" id="education1" placeholder="Nazwa Szkoły" value="">
+                        <input type="text" id="educationFrom1" placeholder="Od" value="">
+                        <input type="text" id="educationTo1" placeholder="Do" value="">
+                      </div>  
+  
+                      <div class="education-category__input">                        
+                        <input type="text" id="education2" placeholder="Nazwa Szkoły" value="">
+                        <input type="text" id="educationFrom2" placeholder="Od" value="">
+                        <input type="text" id="educationTo2" placeholder="Do" value="">
+                      </div>  
+  
+                      <div class="education-category__input">                        
+                        <input type="text" id="education3" placeholder="Nazwa Szkoły" value="">
+                        <input type="text" id="educationFrom3" placeholder="Od" value="">
+                        <input type="text" id="educationTo3" placeholder="Do" value="">
+                      </div>  
+                    </div>
+                  </div>
+
+                  <!-- skills -->
+                  <div class="category-button" onclick="showCategory('skills')">Umiejętności</div>
+                  <div class="category skills-category" id="skills">
+                    <p>Wpisz swoje Umiejętności</p>
+                    <input type="text" id="skill0" value="">
+                    <input type="text" id="skill1" value="">
+                    <input type="text" id="skill2" value="">
+                    <input type="text" id="skill3" value="">
+                    <input type="text" id="skill4" value="">
+                    <input type="text" id="skill5" value="">
+                    <input type="text" id="skill6" value="">
+                    <input type="text" id="skill7" value="">
+                    <input type="text" id="skill8" value="">
+                    <input type="text" id="skill9" value="">
+                  </div>
+
+                  <!-- courses -->
+                  <div class="category-button" onclick="showCategory('courses')">Kursy</div>
+                  <div class="category courses-category" id="courses">
+                    <p>Wpisz kursy które ukończyłeś</p>
+                    <input type="text" id="course0" value="">
+                    <input type="text" id="course1" value="">
+                    <input type="text" id="course2" value="">
+                    <input type="text" id="course3" value="">
+                    <input type="text" id="course4" value="">
+                    <input type="text" id="course5" value="">
+                    <input type="text" id="course6" value="">
+                    <input type="text" id="course7" value="">
+                    <input type="text" id="course8" value="">
+                    <input type="text" id="course9" value="">
+                  </div>
+
+                  <!-- languages -->
+                  <div class="category-button" onclick="showCategory('languages')">Języki</div>
+                  <div class="category languages-category" id="languages">
+                    <p>Wpisz w pola języki wraz z poziomem</p>
+                    <input type="text" id="language0" value="">
+                    <input type="text" id="language1" value="">
+                    <input type="text" id="language2" value="">
+                    <input type="text" id="language3" value="">
+                    <input type="text" id="language4" value="">
+                    <input type="text" id="language5" value="">
+                    <input type="text" id="language6" value="">
+                    <input type="text" id="language7" value="">
+                    <input type="text" id="language8" value="">
+                    <input type="text" id="language9" value="">
+                  </div>
+
+                  <input type="button" value="Aktualizuj podgląd" onclick="saveData(); loadData(); checkVisibility(); refreshPage();">
+                  <input type="submit" value="Wygeneruj CV" formaction="cv-download/cv-download.html">
+                </form>
+          </div>
+          </section>
+
+          <!-- Preview -->
+          <section class="cv-preview">
+            <div class="cv-preview__frame">
+
+              <h2>Podgląd</h2>
+              <div id="cv-preview" class="cv-preview__preview">
+                <section class="header">
+                  <div id="imageContainer"></div>
+                  <h2>
+                    <span id="previewName"></span>
+                    <span id=" "></span>
+                    <span id="previewSurname"></span>
+                  </h2>
+                  <ul class="contact">
+                    <li id="previewEmailListItem">
+                      <i class="fa-solid fa-envelope"></i>
+                      <span>E-mail: </span>
+                      <span id="previewEmail"></span>
+                    </li>
+                    <li id="previewPhoneListItem">
+                      <i class="fa-solid fa-phone"></i>
+                      <span>Numer Telefonu: </span>
+                      <span id="previewPhone"></span>
+                    </li>
+                    <li id="previewAddressListItem">
+                      <i class="fa-solid fa-location-dot"></i>
+                      <span>Adres: </span>
+                      <span id="previewAddress"></span>
+                    </li>
+                  </ul>
+                </section>
+                <section>
+                  <div id="previewAboutMeListItem">
+                    <h2>O mnie</h2>
+                    <br>
+                    <p id="previewAboutMe"></p>
+                  </div>
+                </section>
+                <section>
+                  <ul>
+                    <li id="previewPosition0ListItem">
+                      <h2>Doświadczenie</h2>
+                      <span id="previewFrom0"></span>
+                      <span id="previewTo0"></span>
+                      <span id="previewCompany0"></span>
+                      <span>-</span>
+                      <span id="previewPosition0"></span>
+                    </li>
+                    <li id="previewPosition1ListItem">
+                      <span id="previewFrom1"></span>
+                      <span id="previewTo1"></span>
+                      <span id="previewCompany1"></span>
+                      <span>-</span>
+                      <span id="previewPosition1"></span>
+                    </li>
+                    <li id="previewPosition2ListItem">
+                      <span id="previewFrom2"></span>
+                      <span id="previewTo2"></span>
+                      <span id="previewCompany2"></span>
+                      <span>-</span>
+                      <span id="previewPosition2"></span>
+                    </li>
+                    <li id="previewPosition3ListItem">
+                      <span id="previewFrom3"></span>
+                      <span id="previewTo3"></span>
+                      <span id="previewCompany3"></span>
+                      <span>-</span>
+                      <span id="previewPosition3"></span>
+                    </li>
+                  </ul>
+                </section>
+                <section>
+                  <ul>
+                    <li id="previewEducation0ListItem">
+                      <span id="previewEducationFrom0"></span>
+                      <span id="previewEducationTo0"></span>
+                      <span id="previewEducation0"></span>
+                    </li>
+                    <li id="previewEducation1ListItem">
+                      <span id="previewEducationFrom1"></span>
+                      <span id="previewEducationTo1"></span>
+                      <span id="previewEducation1"></span>
+                    </li>
+                    <li id="previewEducation2ListItem">
+                      <span id="previewEducationFrom2"></span>
+                      <span id="previewEducationTo2"></span>
+                      <span id="previewEducation2"></span>
+                    </li>
+                    <li id="previewEducation3ListItem">
+                      <span id="previewEducationFrom3"></span>
+                      <span id="previewEducationTo3"></span>
+                      <span id="previewEducation3"></span>
+                    </li>
+                  </ul>
+                </section>
+                <section>
+                  <ul>
+                    <li id="previewSkill0ListItem">
+                      <span id="previewSkill0"></span>
+                    </li>
+                    <li id="previewSkill1ListItem">
+                      <span id="previewSkill1"></span>
+                    </li>
+                    <li id="previewSkill2ListItem">
+                      <span id="previewSkill2"></span>
+                    </li>
+                    <li id="previewSkill3ListItem">
+                      <span id="previewSkill3"></span>
+                    </li>
+                    <li id="previewSkill4ListItem">
+                      <span id="previewSkill4"></span>
+                    </li>
+                    <li id="previewSkill5ListItem">
+                      <span id="previewSkill5"></span>
+                    </li>
+                    <li id="previewSkill6ListItem">
+                      <span id="previewSkill6"></span>
+                    </li>
+                    <li id="previewSkill7ListItem">
+                      <span id="previewSkill7"></span>
+                    </li>
+                    <li id="previewSkill8ListItem">
+                      <span id="previewSkill8"></span>
+                    </li>
+                    <li id="previewSkill9ListItem">
+                      <span id="previewSkill9"></span>
+                    </li>
+                  </ul>
+                </section>
+                <section>
+                  <ul>
+                    <li id="previewCourse0ListItem">
+                      <span id="previewCourse0"></span>
+                    </li>
+                    <li id="previewCourse1ListItem">
+                      <span id="previewCourse1"></span>
+                    </li>
+                    <li id="previewCourse2ListItem">
+                      <span id="previewCourse2"></span>
+                    </li>
+                    <li id="previewCourse3ListItem">
+                      <span id="previewCourse3"></span>
+                    </li>
+                    <li id="previewCourse4ListItem">
+                      <span id="previewCourse4"></span>
+                    </li>
+                    <li id="previewCourse5ListItem">
+                      <span id="previewCourse5"></span>
+                    </li>
+                    <li id="previewCourse6ListItem">
+                      <span id="previewCourse6"></span>
+                    </li>
+                    <li id="previewCourse7ListItem">
+                      <span id="previewCourse7"></span>
+                    </li>
+                    <li id="previewCourse8ListItem">
+                      <span id="previewCourse8"></span>
+                    </li>
+                    <li id="previewCourse9ListItem">
+                      <span id="previewCourse9"></span>
+                    </li>
+                  </ul>
+                </section>
+                <section>
+                  <ul>
+                    <li id="previewLanguage0ListItem">
+                      <span id="previewLanguage0"></span>
+                    </li>
+                    <li id="previewLanguage1ListItem">
+                      <span id="previewLanguage1"></span>
+                    </li>
+                    <li id="previewLanguage2ListItem">
+                      <span id="previewLanguage2"></span>
+                    </li>
+                    <li id="previewLanguage3ListItem">
+                      <span id="previewLanguage3"></span>
+                    </li>
+                    <li id="previewLanguage4ListItem">
+                      <span id="previewLanguage4"></span>
+                    </li>
+                    <li id="previewLanguage5ListItem">
+                      <span id="previewLanguage5"></span>
+                    </li>
+                    <li id="previewLanguage6ListItem">
+                      <span id="previewLanguage6"></span>
+                    </li>
+                    <li id="previewLanguage7ListItem">
+                      <span id="previewLanguage7"></span>
+                    </li>
+                    <li id="previewLanguage8ListItem">
+                      <span id="previewLanguage8"></span>
+                    </li>
+                    <li id="previewLanguage9ListItem">
+                      <span id="previewLanguage9"></span>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </section>
+    </main>
+    <script src="cv-editor.js"></script>
+</body>
+</html>

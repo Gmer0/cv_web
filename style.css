@@ -31,13 +31,13 @@ body::before {
 
 .cv-tiles {
     padding: 1rem;
-    margin: 5rem 15rem;
+    margin: 5rem;
     border: #FFFFFF solid 2px;
     border-radius: 4rem;
 }
 
 .cv-tiles__frame {
-    background-color: #E4D3C4;
+    background-color: rgba(228, 211, 196, 0.8);
     padding: 4rem 8rem;
     border-radius: 4rem;
 }
@@ -47,9 +47,9 @@ body::before {
     justify-content: space-between;
     background-color: #FFFFFF;
     border-radius: 2rem;
-    padding: 2rem 6rem;
+    padding: 2vw 6vw;
     font-family: 'FiraSansRegular', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.3vw;
     color: #433831;
 }
 
@@ -65,15 +65,15 @@ body::before {
     height: auto;
     display: grid;
     grid-template-columns: repeat(3, 25vw);
-    gap: 2rem;
+    row-gap: 3vw;
     justify-content: center;
     align-content: center;
     justify-items: center;
 }
 
 .cv-tile {
-    height: 35rem;
-    width: 25rem;
+    height: 28vw;
+    width: 20vw;
     background-color: #FFFFFF;
     border-radius: 2rem;
     transition: all 0.25s ease-in-out;
@@ -82,4 +82,36 @@ body::before {
 .cv-tile:hover {
     background-color: #FFFFFF;
     cursor: pointer;
+}
+
+/* Media Query */
+
+/* Phone */
+@media only screen and (max-width: 780px) {
+    .cv-tiles__contener {
+        grid-template-columns: 35vw;
+    }
+    .cv-tile {
+        height: 85vw;
+        width: 65vw;
+    }
+    .cv-tiles__header {
+        padding: 3.5vw 10vw;
+        font-size: 2vw;
+    }
+}
+
+/* Tablet */
+@media only screen and (min-width: 781px) and (max-width: 1024px) {
+    .cv-tiles__contener {
+        grid-template-columns: repeat(2, 35vw);
+    }
+    .cv-tile {
+        height: 42vw;
+        width: 29vw;
+    }
+    .cv-tiles__header {
+        padding: 2.5vw 10vw;
+        font-size: 2vw;
+    }
 }
