@@ -176,92 +176,99 @@ main::before {
     width: 18vw;
 }
 
-/* Hide */
+.form-button {
+    display: flex;
+    padding: 0.4vw;
+    width: 70%;
+    background-color: white;
+    border-radius: 1rem;
+    border: none;
+    margin: 5px;
+    transition: all 0.25s ease-in-out;
+}
 
-.previewEmailListItem,
-.previewPhoneListItem,
-.previewAddressListItem,
-.aboutMe,
-.company0,
-.company1,
-.company2,
-.company3,
-.position0,
-.position1,
-.position2,
-.position3,
-.from0,
-.from1,
-.from2,
-.from3,
-.to0,
-.to1,
-.to2,
-.to3,
-.education0,
-.education1,
-.education2,
-.education3,
-.educationFrom0,
-.educationFrom1,
-.educationFrom2,
-.educationFrom3,
-.educationTo0,
-.educationTo1,
-.educationTo2,
-.educationTo3,
-.skill0,
-.skill1,
-.skill2,
-.skill3,
-.skill4,
-.skill5,
-.skill6,
-.skill7,
-.skill8,
-.skill9,
-.course0,
-.course1,
-.course2,
-.course3,
-.course4,
-.course5,
-.course6,
-.course7,
-.course8,
-.course9,
-.language0,
-.language1,
-.language2,
-.language3,
-.language4,
-.language5,
-.language6,
-.language7,
-.language8,
-.language9 {
-    display: none;
+.form-button:hover {
+    background-color: #433831;
+    cursor: pointer;
+    color: white;
 }
 
 /*  preview */
 
 .cv-preview__preview {
-    background-color: #FFFFFF;
+    height: 100%;
     width: 45vw;
-    display: grid;
-    align-content: flex-start;
+    background-color: #FFFFFF;
+    padding: 0 5%;
 }
 
 .cv-preview__preview .header {
     display: flex;
-    justify-content:space-between;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    padding: 5%;
 }
 
-.cv-preview__preview .header img {
-    width: 12rem;
+.cv-preview__preview .columns2 {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10%;
+}
+
+#uploadedImage {
+    width: 10vw;
     border-radius: 50%;
+}
+
+#previewAboutMeListItem {
+    display: flex;
+    flex-direction: column;
+}
+
+#previewExperienceListItems {
+    display: flex;
+    flex-direction: column;
+}
+
+.cv-preview__preview h2 {
+	font-size: 1.3vw; /* 24px */
+	color: darkblue;
+    margin: 1% 0;
+}
+
+.cv-preview__preview h1 {
+	font-size: 3vw; /* 28px */
+	color: black;
+}
+
+#previewSurname,
+#previewName {
+    font-size: 1.5vw;
+}
+
+.cv-preview__preview a {
+	color: black;
+	text-decoration: none;
+}
+
+.cv-preview__preview p {
+    margin: 0;
+    padding: 1%;
+    font-size: 0.8vw;
+}
+
+.cv-preview__preview li {
+    align-items: center;
+    gap: 0.3%;
+}
+
+.cv-preview__preview span {
+    white-space: nowrap;
+    font-size: 0.8vw;
+}
+
+.margin-left {
+    padding-left: 1.4%;
 }
 
 /* Media Query */

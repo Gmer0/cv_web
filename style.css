@@ -68,7 +68,6 @@ body::before {
     row-gap: 3vw;
     justify-content: center;
     align-content: center;
-    justify-items: center;
 }
 
 .cv-tile {
@@ -76,12 +75,62 @@ body::before {
     width: 20vw;
     background-color: #FFFFFF;
     border-radius: 2rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.cv-tile::before {
+    content: "";
+    position: absolute;
+    background-color: rgba(185, 185, 185, 0.8);
+    height: 100%;
+    width: 100%;
+    border-radius: 2rem;
+    top: -120%;
+    left: 100%;
+    transform: rotate(90deg);
     transition: all 0.25s ease-in-out;
 }
 
-.cv-tile:hover {
-    background-color: #FFFFFF;
-    cursor: pointer;
+.cv-tile p:first-child {
+    position: absolute;
+    top: 50%;
+    right: -100%;
+    transform: translate(50%, -100%);
+    font-size: 2vw;
+    font-weight: bold;
+    color: #FFFFFF;
+    z-index: 5;
+    transition: all 0.5s ease-in-out;
+    white-space: nowrap;
+}
+
+.cv-tile:hover p:first-child {
+    right: 50%;
+}
+
+.cv-tile img {
+    margin-top: 1vw;
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.cv-tile:hover::before {
+    transform: rotate(0);
+    top: 0;
+    left: 0;
+}
+
+#currentDate {
+    font-weight: bold;
 }
 
 /* Media Query */

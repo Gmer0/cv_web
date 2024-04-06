@@ -1,6 +1,8 @@
 window.onload = function() {
     checkVisibility();
     loadData();
+    hideH2();
+    // generatePDF();
 };
 
 function loadData() {
@@ -30,4 +32,45 @@ function checkVisibility() {
             }
         }    
     }); 
+}
+
+function hideH2() {
+  ['previewPosition0', 'previewEducation0', 'previewSkill0', 'previewCourse0', 'previewLanguage0'].forEach(function(field) {
+    var value = document.getElementById(field).textContent;
+    var listItem = document.getElementById(field + 'H2');
+
+    if (listItem) {
+      if (value.trim() !== '') {
+        listItem.style.display = 'flex';
+      } else {
+        listItem.style.display = 'none';
+      }
+    }  
+  });
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+  const savedImageData = localStorage.getItem('savedImage');
+  if (savedImageData) {
+      const imgElement = document.createElement('img');
+      imgElement.src = savedImageData;
+      imgElement.id = 'uploadedImage';
+      const existingImage = document.getElementById('uploadedImage');
+      if (existingImage) {
+          existingImage.parentNode.replaceChild(imgElement, existingImage);
+      } else {
+          document.getElementById('imageContainer').appendChild(imgElement);
+      }
+  }
+});
+
+function generatePDF() {
+  const element = document.getElementById('main');
+  html2pdf()
+    .from(element)
+    .set({ 
+      image: { width: 794, type: 'jpeg', quality: 1.0 },
+      background: '#fff'
+    })
+    .save('CV.pdf');
 }

@@ -16,7 +16,7 @@
               <a href="../index.html"><i class="fa-solid fa-backward"></i></a>
               <p>Wypełnij jedynie pola z informacjami, które chcesz zawrzeć w swoim CV.</p>
 
-                <form class="category-form" action="cv-editor.html" method="post" onsubmit="saveData()">
+                <form class="category-form" action="cv-editor.html" method="post" target="_blank" onsubmit="saveData()">
                   
                   <!-- main-info -->
                   <div class="category-button" onclick="showCategory('main-info')">Podstawowe Informacje</div>
@@ -26,7 +26,7 @@
                     <input type="email" id="email" placeholder="E-mail" value="">
                     <input type="number" id="phone" placeholder="Nr telefonu" value="">
                     <input type="text" id="address" placeholder="Adres" value="">
-                    <textarea id="aboutMe" placeholder="O mnie" value="" rows="4" cols="50"></textarea>
+                    <textarea id="aboutMe" placeholder="O mnie" value="O mnie" rows="4" cols="50"></textarea>
                   </div>
 
 
@@ -152,62 +152,65 @@
                     <input type="text" id="language9" value="">
                   </div>
 
-                  <input type="button" value="Aktualizuj podgląd" onclick="saveData(); loadData(); checkVisibility(); refreshPage();">
-                  <input type="submit" value="Wygeneruj CV" formaction="cv-download/cv-download.html">
+                  <input type="button" class="form-button" value="Aktualizuj podgląd" onclick="saveData(); loadData(); checkVisibility(); hideH2(); refreshPage();" data-keep>
+                  <input type="submit" class="form-button" value="Wygeneruj CV" formaction="cv-download/cv-download.html" data-keep> 
+                  <input type="button" class="form-button" value="Wyczyść dane" onclick="localStorageClear();" data-keep>
                 </form>
           </div>
           </section>
+          <!-- formaction="cv-download/cv-download.html" -->
 
           <!-- Preview -->
           <section class="cv-preview">
             <div class="cv-preview__frame">
 
-              <h2>Podgląd</h2>
               <div id="cv-preview" class="cv-preview__preview">
                 <section class="header">
                   <div id="imageContainer"></div>
-                  <h2>
+                  <h1>
                     <span id="previewName"></span>
                     <span id=" "></span>
                     <span id="previewSurname"></span>
-                  </h2>
+                  </h1>
                   <ul class="contact">
                     <li id="previewEmailListItem">
                       <i class="fa-solid fa-envelope"></i>
-                      <span>E-mail: </span>
+                      <span><b>E-mail: </b></span>
                       <span id="previewEmail"></span>
                     </li>
                     <li id="previewPhoneListItem">
                       <i class="fa-solid fa-phone"></i>
-                      <span>Numer Telefonu: </span>
+                      <span><b>Numer Telefonu: </b></span>
                       <span id="previewPhone"></span>
                     </li>
                     <li id="previewAddressListItem">
                       <i class="fa-solid fa-location-dot"></i>
-                      <span>Adres: </span>
+                      <span><b>Adres: </b></span>
                       <span id="previewAddress"></span>
                     </li>
                   </ul>
                 </section>
                 <section>
                   <div id="previewAboutMeListItem">
-                    <h2>O mnie</h2>
-                    <br>
+                    <h2 id="previewAboutMeH2">O mnie</h2>
                     <p id="previewAboutMe"></p>
                   </div>
                 </section>
-                <section>
+                <h2 id="previewPosition0H2">Doświadczenie</h2>
+                <section id="previewExperienceListItems" class="margin-left">
                   <ul>
                     <li id="previewPosition0ListItem">
-                      <h2>Doświadczenie</h2>
                       <span id="previewFrom0"></span>
+                      <span>-</span>
                       <span id="previewTo0"></span>
+                      <span>:</span>
                       <span id="previewCompany0"></span>
                       <span>-</span>
                       <span id="previewPosition0"></span>
                     </li>
                     <li id="previewPosition1ListItem">
                       <span id="previewFrom1"></span>
+                      <span>-</span>
                       <span id="previewTo1"></span>
                       <span id="previewCompany1"></span>
                       <span>-</span>
@@ -215,6 +218,7 @@
                     </li>
                     <li id="previewPosition2ListItem">
                       <span id="previewFrom2"></span>
+                      <span>-</span>
                       <span id="previewTo2"></span>
                       <span id="previewCompany2"></span>
                       <span>-</span>
@@ -222,6 +226,7 @@
                     </li>
                     <li id="previewPosition3ListItem">
                       <span id="previewFrom3"></span>
+                      <span>-</span>
                       <span id="previewTo3"></span>
                       <span id="previewCompany3"></span>
                       <span>-</span>
@@ -229,31 +234,37 @@
                     </li>
                   </ul>
                 </section>
-                <section>
+                <h2 id="previewEducation0H2">Wykształcenie</h2>
+                <section class="margin-left">
                   <ul>
                     <li id="previewEducation0ListItem">
                       <span id="previewEducationFrom0"></span>
+                      <span>-</span>
                       <span id="previewEducationTo0"></span>
                       <span id="previewEducation0"></span>
                     </li>
                     <li id="previewEducation1ListItem">
                       <span id="previewEducationFrom1"></span>
+                      <span>-</span>
                       <span id="previewEducationTo1"></span>
                       <span id="previewEducation1"></span>
                     </li>
                     <li id="previewEducation2ListItem">
                       <span id="previewEducationFrom2"></span>
+                      <span>-</span>
                       <span id="previewEducationTo2"></span>
                       <span id="previewEducation2"></span>
                     </li>
                     <li id="previewEducation3ListItem">
                       <span id="previewEducationFrom3"></span>
+                      <span>-</span>
                       <span id="previewEducationTo3"></span>
                       <span id="previewEducation3"></span>
                     </li>
                   </ul>
                 </section>
-                <section>
+                <h2 id="previewSkill0H2">Umiejętności</h2>
+                <section class="margin-left">
                   <ul>
                     <li id="previewSkill0ListItem">
                       <span id="previewSkill0"></span>
@@ -287,7 +298,8 @@
                     </li>
                   </ul>
                 </section>
-                <section>
+                <h2 id="previewCourse0H2">Kursy</h2>
+                <section class="margin-left">
                   <ul>
                     <li id="previewCourse0ListItem">
                       <span id="previewCourse0"></span>
@@ -321,7 +333,8 @@
                     </li>
                   </ul>
                 </section>
-                <section>
+                <h2 id="previewLanguage0H2">Języki</h2>
+                <section class="margin-left">
                   <ul>
                     <li id="previewLanguage0ListItem">
                       <span id="previewLanguage0"></span>
